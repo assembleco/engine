@@ -13,7 +13,7 @@ class CodeController < ApplicationController
         result.rows.map {|row| row.join("\t") },
       ].join("\n")
     elsif params[:system] == "accupacDatabase"
-      sample_data = File.read(Rails.root.join("../data.json"))
+      sample_data = File.read(Rails.root.join("data.json"))
       sample_id = params[:code].scan(/q\d{6}/i).last.upcase
 
       render plain: [
